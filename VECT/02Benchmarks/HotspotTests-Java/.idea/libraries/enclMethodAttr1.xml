@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="enclMethodAttr1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/runtime/EnclosingMethodAttr/enclMethodAttr.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
