@@ -57,28 +57,6 @@ public class ExecutorHelper {
         try {
             InputStream inputStream = process.getInputStream();
             InputStream errorStream = process.getErrorStream();
-
-//            new Thread(() -> {
-//
-//                BufferedReader inputReader = new BufferedReader(new InputStreamReader(inputStream));
-//                try {
-//                    String line = null ;
-//                    while ((line = inputReader.readLine()) !=  null ){
-//
-//                        stdoutBuffer[0] = stdoutBuffer[0] + line + "\n";
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                } finally{
-//
-//                    try {
-//                        inputStream.close();
-//                        inputReader.close();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }).start();
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(inputStream));
             try {
                 String line = null ;

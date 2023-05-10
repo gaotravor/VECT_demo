@@ -15,10 +15,8 @@ import soot.options.Options;
 import org.jboss.windup.decompiler.api.*;
 import org.jboss.windup.decompiler.procyon.ProcyonDecompiler;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
@@ -97,16 +95,41 @@ public class CodeClusterHelper {
             System.out.println(nameList.size());
             count++;
 
-            String cmd = "cmd /c "+
-                    jadPath +
-                    " -p "+
-                    classFileDir+DTPlatform.FILE_SEPARATOR+name+
-                    " > "+
-                    javaFileDir+DTPlatform.FILE_SEPARATOR+name.replace(".class",".java");
+            if(System.getProperty("os.name").equals("Linux")){
 
-            System.out.println(cmd);
-            Process p = Runtime.getRuntime().exec(cmd);
-            p.waitFor(20, TimeUnit.SECONDS);
+                String cmd = jadPath +
+                        " -p "+
+                        classFileDir+DTPlatform.FILE_SEPARATOR+name;
+                System.out.println(cmd);
+                Process process = Runtime.getRuntime().exec(cmd);
+                process.waitFor(20, TimeUnit.SECONDS);
+
+                InputStream inputStream = process.getInputStream();
+                BufferedReader inputReader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line = null ;
+                while ((line = inputReader.readLine()) !=  null ){
+                    stringBuilder.append(line).append("\n");
+                }
+                File outFile = new File(javaFileDir+DTPlatform.FILE_SEPARATOR+name.replace(".class",".java"));
+                FileWriter fileWriter = new FileWriter(outFile);
+                fileWriter.write(stringBuilder.toString());
+                fileWriter.close();
+            }else if(System.getProperty("os.name").startsWith("Windows")){
+
+                String cmd = "cmd /c "+
+                        jadPath +
+                        " -p "+
+                        classFileDir+DTPlatform.FILE_SEPARATOR+name+
+                        " > "+
+                        javaFileDir+DTPlatform.FILE_SEPARATOR+name.replace(".class",".java");
+
+                System.out.println(cmd);
+                Process p = Runtime.getRuntime().exec(cmd);
+                p.waitFor(20, TimeUnit.SECONDS);
+
+            }
+
         }
     }
 

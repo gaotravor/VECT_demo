@@ -434,10 +434,10 @@ public class Main {
                 System.out.println("          for example:testcases.txt");
                 System.out.println("          default:testcases.txt");
                 System.out.println("-r or -randomSeed to set random seed");
-                System.out.println("          for example:0 or 1 or 2...");
-                System.out.println("          default:get by System.currentTimeMillis()");
+                System.out.println("          for example:-1 or 0 or 1 or 2...");
+                System.out.println("          default: -1 (get by System.currentTimeMillis())");
                 System.out.println("-sl or -select to set select method");
-                System.out.println("          for example:random or softmax or rws");
+                System.out.println("          for example:random or rws");
                 System.out.println("          default:rws");
                 System.out.println("-cl or -cluster to set cluster method");
                 System.out.println("          for example:no_cluster or infercode or codebert or codet5 or plbart");

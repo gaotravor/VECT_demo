@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="VECT:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b7e052b-d4ec-4dfc-b99f-ed6aee3313c2" name="Changes" comment="" />
+    <list default="true" id="0b7e052b-d4ec-4dfc-b99f-ed6aee3313c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/VECT_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTJVM/src/main/java/dtjvms/executor/ExecutorHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/src/main/java/dtjvms/executor/ExecutorHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTJVM/src/main/resources/default.properties" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/src/main/resources/default.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTJVM/target/classes/default.properties" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/target/classes/default.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/analyzer/JDKAnalyzer.class" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/analyzer/JDKAnalyzer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/executor/ExecutorHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/executor/ExecutorHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/java/core/CodeClusterHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/core/CodeClusterHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/Jimple2Class.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/core/CodeClusterHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/classes/core/CodeClusterHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/core/CorrectingCommit$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/core/CorrectingCommit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/core/Jimple2Class$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/classes/core/Jimple2Class$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/core/Jimple2Class.class" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/classes/core/Jimple2Class.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/core/LoopWrapHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/core/SelectBlockHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/classes/core/SelectBlockHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/ClazzUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/SynResultAna.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/canUseChecksum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/covCurveData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/huaweiAnalysis.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/isAllIssueRunnable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/isAllSynRunnable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/objectToBytes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/runAllDiffClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/temp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/tempGetSame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/test$LogFormatter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/test/test.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -24,9 +66,30 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "Z:/JVM_Testing/VECT/VECT_demo/VECT_demo/VECT",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Main" />
+      <option name="PROGRAM_PARAMETERS" value="-help" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
