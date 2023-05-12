@@ -43,7 +43,10 @@ public class SelectBlockHelper {
     private static BlockInfo getIngredientRandom(Random random){
         if(reshape){
             List<List<BlockInfo>> AllClusteringMutation = BlocksContainer.getAllClusteringMutation();
-            List<BlockInfo> blockInfos = AllClusteringMutation.get(random.nextInt(AllClusteringMutation.size()));
+            List<BlockInfo> blockInfos = new ArrayList<>();
+            while (blockInfos.size()==0){
+                blockInfos = AllClusteringMutation.get(random.nextInt(AllClusteringMutation.size()));
+            }
             return blockInfos.get(random.nextInt(blockInfos.size()));
         }else {
             Map<String, List<BlockInfo>> ingredients = BlocksContainer.getValidMutationMap();

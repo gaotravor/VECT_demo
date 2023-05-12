@@ -136,10 +136,12 @@ public class DiffLogAnalyzer {
 
 
                 }
+
                 System.out.println("allCrash:"+crashCount);
                 System.out.println("uniqueCrash:"+uniqueCrash.size());
                 System.out.println("allChecksum:"+checkSumCount);
                 System.out.println("CorrectingCommit:"+uniqueCheck.size());
+                System.out.println("+++++++++++++++++++++++++++++++++");
             }
         }
 

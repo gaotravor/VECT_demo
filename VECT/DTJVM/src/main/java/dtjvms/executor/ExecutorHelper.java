@@ -22,32 +22,6 @@ public class ExecutorHelper {
      * @return Output from process.
      * @throws IOException If an I/O error occurs.
      */
-//    public static JvmOutput getJvmOutput(Process process) throws IOException {
-//
-//        ByteArrayOutputStream stdoutBuffer = new ByteArrayOutputStream();
-//        ByteArrayOutputStream stderrBuffer = new ByteArrayOutputStream();
-//        StreamPumper outPumper = new StreamPumper(process.getInputStream(), stdoutBuffer);
-//        StreamPumper errPumper = new StreamPumper(process.getErrorStream(), stderrBuffer);
-//        Thread outPumperThread = new Thread(outPumper);
-//        Thread errPumperThread = new Thread(errPumper);
-//
-//        outPumperThread.setDaemon(true);
-//        errPumperThread.setDaemon(true);
-//
-//        outPumperThread.start();
-//        errPumperThread.start();
-//
-//        try {
-//            process.waitFor(15, TimeUnit.SECONDS);
-//            outPumperThread.join();
-//            errPumperThread.join();
-//        } catch (InterruptedException e) {
-//            Thread.currentThread().interrupt();
-//            return null;
-//        }
-//
-//        return new JvmOutput(stdoutBuffer.toString(), stderrBuffer.toString(), process.exitValue());
-//    }
 
     public static JvmOutput getJvmOutput(Process process) throws IOException {
 
