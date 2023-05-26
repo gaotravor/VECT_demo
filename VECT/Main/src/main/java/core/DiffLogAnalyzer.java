@@ -19,131 +19,70 @@ import java.util.*;
  */
 public class DiffLogAnalyzer {
     public static void main(String[] args) throws IOException {
-        String RQ = "RQ2_old";
-        String Benchmark = "hotspot";
-        File rootFile = new File("Z:\\JVM_Testing\\VECT\\update\\"+RQ+"\\"+Benchmark);
-        for (File file : Objects.requireNonNull(rootFile.listFiles())) {
-            if(!file.isDirectory()){
-                continue;
+        String rootPath = args[0];
+        File listFile = new File(rootPath);
+
+        new File(listFile.getAbsolutePath()+"\\checksum.txt").delete();
+        new File(listFile.getAbsolutePath()+"\\uniqueCrash.txt").delete();
+
+        File diffLog;
+
+        diffLog = DiffLogAnalyzer.getFile(listFile.getAbsolutePath()+DTPlatform.FILE_SEPARATOR+"difference.log");
+
+
+        List<StringBuilder> diffs = DiffLogAnalyzer.clearTimeOutDiff(DiffLogAnalyzer.getInfoForEachDiff(diffLog));
+
+
+
+        int crashCount = 0;
+        int checkSumCount = 0;
+        int skipSize = 0;
+        Set<String> uniqueCrash = new HashSet<>();
+        Set<String> uniqueCheck = new HashSet<>();
+        for (StringBuilder diff : diffs) {
+            List<StringBuilder> diffDetail = DiffLogAnalyzer.getDetailForDiff(diff);
+            String crashMess = diffDetail.get(1).toString();
+
+            crashMess = crashMess + " ";
+
+            boolean isCrash = true;
+            if(diff.toString().contains("Normal Output Inconsistent:")){
+                isCrash = false;
             }
-            for (File listFile : Objects.requireNonNull(file.listFiles())) {
-                if(!listFile.isDirectory()){
-                    continue;
+
+            if(isCrash){
+                crashCount++;
+                if(!uniqueCrash.contains(crashMess)){
+                    uniqueCrash.add(crashMess);
+                    File uniqueCrashFile = new File(listFile.getAbsolutePath()+"\\uniqueCrash.txt");
+                    FileWriter fileWriter = new FileWriter(uniqueCrashFile,true);
+                    fileWriter.write(diffDetail.get(0).toString()+"\n");
+                    fileWriter.write(crashMess+"\n");
+                    fileWriter.flush();
+                    fileWriter.close();
                 }
-                System.out.println(listFile.getAbsolutePath().replace("\\","_").split(RQ+"_")[1]);
-
-                new File(listFile.getAbsolutePath()+"\\CorrectingCommit.txt").delete();
-                new File(listFile.getAbsolutePath()+"\\uniqueCrash.txt").delete();
-
-                File diffLog;
-
-                try {
-                    diffLog = DiffLogAnalyzer.getAllFile(listFile.getAbsolutePath());
-                }catch (NullPointerException e){
-                    continue;
+            }else {
+                checkSumCount++;
+                if(!uniqueCheck.contains(crashMess)){
+                    uniqueCheck.add(crashMess);
+                    File uniqueChecksumName = new File(listFile.getAbsolutePath()+"\\checksum.txt");
+                    FileWriter fileWriter = new FileWriter(uniqueChecksumName,true);
+                    fileWriter.write(diffDetail.get(0).toString()+"\n");
+                    fileWriter.write(crashMess+"\n");
+                    fileWriter.flush();
+                    fileWriter.close();
                 }
-
-                if(new File(listFile.getAbsolutePath().replace(Benchmark,Benchmark+"-processing")).exists()){
-                    diffLog = new File(listFile.getAbsolutePath().replace(Benchmark,Benchmark+"-processing")+DTPlatform.FILE_SEPARATOR+"difference.log");
-                }
-
-                double exeTime = Files.lines(Paths.get(listFile.getAbsolutePath() + "\\DiffAndSelectTime.txt")).count();
-                System.out.println("exeTime:"+Math.ceil(exeTime/2*20/60));
-
-                List<StringBuilder> diffs = DiffLogAnalyzer.clearTimeOutDiff(DiffLogAnalyzer.getInfoForEachDiff(diffLog));
-
-
-
-                int crashCount = 0;
-                int checkSumCount = 0;
-                int skipSize = 0;
-                Set<String> uniqueCrash = new HashSet<>();
-                Set<String> uniqueCheck = new HashSet<>();
-                for (StringBuilder diff : diffs) {
-                    List<StringBuilder> diffDetail = DiffLogAnalyzer.getDetailForDiff(diff);
-                    String crashMess = diffDetail.get(1).toString();
-
-                    crashMess = crashMess + " ";
-
-                    boolean isCrash = true;
-                    if(crashMess.equals("hotspot_old [] hotspot [] openj9_old [] openj9 [] bisheng_old [] bisheng [] ") || crashMess.equals("hotspot_old [] hotspot [] openj9_old [] openj9 [] ")){
-                        isCrash = false;
-                        String checkMess = "hotspot_old [FIRST] hotspot [SECOND] openj9_old [THIRD] openj9 [FORTH] bisheng_old [FIFTH] bisheng [SIXTH] ";
-
-//                        StringBuilder checkMess = new StringBuilder();
-                        String[] jvms = new String[]{"hotspot_old","hotspot","openj9_old","openj9","bisheng_old","bisheng"};
-                        boolean skipFlag = false;
-                        String placeholder = "";
-                        for(int i= 2;i<diffDetail.size();i++){
-                            String line = diffDetail.get(i).toString();
-                            if(i%2 == 0){
-                                for (String jvm : jvms) {
-                                    if (line.contains(jvm)){
-                                        placeholder = checkMess.split(jvm+" \\[")[1].split("]")[0];
-                                        break;
-                                    }
-                                }
-                            }else {
-                                if(!line.contains("my_check_sum_value:")){
-                                    skipFlag =true;
-                                    break;
-                                }
-                                try {
-                                    checkMess = checkMess.replace(placeholder,line.split("my_check_sum_value:")[1].split("\n")[0]);
-                                }catch (Exception e){
-                                    skipFlag = true;
-                                    skipSize++;
-                                    break;
-                                }
-
-                            }
-                        }
-                        if(skipFlag){
-                            continue;
-                        }
-                        crashMess = checkMess;
-                    }
-
-                    if(crashMess.contains("FIFTH")){
-                        crashMess = crashMess.split("bisheng_old")[0];
-                    }
-
-                    if(clearBug(crashMess) == 1)
-                        continue;
-
-                    if(isCrash){
-                        crashCount++;
-                        if(!uniqueCrash.contains(crashMess)){
-                            uniqueCrash.add(crashMess);
-                            File uniqueCrashFile = new File(listFile.getAbsolutePath()+"\\uniqueCrash.txt");
-                            FileWriter fileWriter = new FileWriter(uniqueCrashFile,true);
-                            fileWriter.write(diffDetail.get(0).toString()+"\n");
-                            fileWriter.write(crashMess+"\n");
-                            fileWriter.flush();
-                            fileWriter.close();
-                        }
-                    }else {
-                        checkSumCount++;
-                        if(!uniqueCheck.contains(crashMess)){
-                            uniqueCheck.add(crashMess);
-                            File uniqueChecksumName = new File(listFile.getAbsolutePath()+"\\CorrectingCommit.txt");
-                            FileWriter fileWriter = new FileWriter(uniqueChecksumName,true);
-                            fileWriter.write(diffDetail.get(0).toString()+"\n");
-                            fileWriter.flush();
-                            fileWriter.close();
-                        }
-                    }
-
-
-                }
-
-                System.out.println("allCrash:"+crashCount);
-                System.out.println("uniqueCrash:"+uniqueCrash.size());
-                System.out.println("allChecksum:"+checkSumCount);
-                System.out.println("CorrectingCommit:"+uniqueCheck.size());
-                System.out.println("+++++++++++++++++++++++++++++++++");
             }
+
+
         }
+
+        System.out.println("allCrash:"+crashCount);
+        System.out.println("uniqueCrash:"+uniqueCrash.size());
+        System.out.println("allChecksum:"+checkSumCount);
+        System.out.println("uniqueChecksum:"+uniqueCheck.size());
+
+
 
     }
 

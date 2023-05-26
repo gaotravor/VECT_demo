@@ -127,6 +127,8 @@ java -cp VECT.jar:lib/rt.jar Main -s HotspotTests-Java -p HotspotTests-Java -sl 
 
 
 
+
+
 ### 为JVM设置执行时参数
 
 您可以在目标JVM的文件夹下创建文件`.options` ，程序在执行时会自动读取文件中的参数设置。
@@ -150,7 +152,15 @@ java -cp VECT.jar:lib/rt.jar Main -s HotspotTests-Java -p HotspotTests-Java -sl 
 
 * 正常进行测试
 
+### 初步去重功能的使用
 
+项目提供了测试结果进行初步去重的功能，您可以通过执行
+
+```
+java -cp VECT.jar:lib/rt.jar core.DiffLogAnalyzer yourPathTo/difference.log
+```
+
+ 进行去重。去重后的结果会被放在对应文件夹中，其中`uniqueCrash.txt`代表异常相关的测试用例，`checksum.txt`代表与输出相关的测试用例。
 
 
 

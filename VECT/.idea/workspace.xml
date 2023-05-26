@@ -10,20 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b7e052b-d4ec-4dfc-b99f-ed6aee3313c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01JVMS/Windows/openjdk8/jdk_win_8_hotspot/.options" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTJVM/src/main/java/dtjvms/JvmInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/src/main/java/dtjvms/JvmInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTJVM/src/main/java/dtjvms/executor/CFM/CFMExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/src/main/java/dtjvms/executor/CFM/CFMExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/JvmInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/JvmInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/executor/CFM/CFMExecutor$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/executor/CFM/CFMExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/executor/CFM/CFMExecutor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/executor/ExecutorHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/target/classes/dtjvms/executor/ExecutorHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/java/core/DiffLogAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/core/DiffLogAnalyzer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/target/classes/core/DiffLogAnalyzer.class" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/classes/core/DiffLogAnalyzer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/target/classes/core/SelectBlockHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/classes/core/SelectBlockHelper.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +35,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="DiffLogAnalyzer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="core.DiffLogAnalyzer" />
+      <module name="Main" />
+      <option name="PROGRAM_PARAMETERS" value="D:\project\HuaWeiAnalysis\03results\1681640306952\HotspotTests-Java1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Main" />
@@ -51,9 +57,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.DiffLogAnalyzer" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.DiffLogAnalyzer" />
       </list>
     </recent_temporary>
   </component>

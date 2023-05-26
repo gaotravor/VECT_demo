@@ -103,7 +103,6 @@ public class Main {
             System.out.println(jvmCmd);
         }
 
-        System.exit(0);
 
         // Generate the folder that holds the history program during execution
         String mutationHistoryPath = MainConfiguration.mutationHistoryPath +
