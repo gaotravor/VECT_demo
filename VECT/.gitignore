@@ -1,3 +1,7 @@
 01JVMS
 03results
+04SynthesisHistory
 sootOutput
+target
+out
+*.class
