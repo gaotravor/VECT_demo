@@ -90,8 +90,20 @@ public class Main {
         // Get JVM information
         ArrayList<JvmInfo> jvmCmds = DTLoader.getInstance().loadJvms();
         for (JvmInfo jvmCmd : jvmCmds) {
+            File file = new File(jvmCmd.getRootPath()+DTPlatform.FILE_SEPARATOR+jvmCmd.getFolderName()+DTPlatform.FILE_SEPARATOR+".options");
+            if(file.exists()){
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                String line = bufferedReader.readLine();
+                while (line!=null)
+                {
+                    jvmCmd.setJavaCmd(jvmCmd.getJavaCmd()+" "+line);
+                    line = bufferedReader.readLine();
+                }
+            }
             System.out.println(jvmCmd);
         }
+
+        System.exit(0);
 
         // Generate the folder that holds the history program during execution
         String mutationHistoryPath = MainConfiguration.mutationHistoryPath +

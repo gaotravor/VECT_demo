@@ -127,6 +127,31 @@ java -cp VECT.jar:lib/rt.jar Main -s HotspotTests-Java -p HotspotTests-Java -sl 
 
 
 
+### 为JVM设置执行时参数
+
+您可以在目标JVM的文件夹下创建文件`.options` ，程序在执行时会自动读取文件中的参数设置。
+
+下面以为 Bisheng JDK17设置参数为例子进行说明：
+
+* 在 `./01JVMS/linux64/openjdk17/bisheng_17` 下创建文件 `.options`
+
+* 向文件中写入参数设置
+
+  ```txt
+  --illegal-access=warn
+  --add-opens=java.base/java.lang=ALL-UNNAMED
+  --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+  --add-opens=java.base/jdk.internal.platform=ALL-UNNAMED
+  --add-opens=jdk.jartool/sun.tools.jar=ALL-UNNAMED
+  --add-opens=java.base/javax.crypto.spec=ALL-UNNAMED
+  --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
+  --add-opens=java.desktop/java.awt=ALL-UNNAMED
+  ```
+
+* 正常进行测试
+
+
+
 
 
 ### 更改 VECT 提供种子文件的项目

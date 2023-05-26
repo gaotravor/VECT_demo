@@ -1,0 +1,8 @@
+--illegal-access=warn
+--add-opens=java.base/java.lang=ALL-UNNAMED
+--add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+--add-opens=java.base/jdk.internal.platform=ALL-UNNAMED
+--add-opens=jdk.jartool/sun.tools.jar=ALL-UNNAMED
+--add-opens=java.base/javax.crypto.spec=ALL-UNNAMED
+--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
+--add-opens=java.desktop/java.awt=ALL-UNNAMED
