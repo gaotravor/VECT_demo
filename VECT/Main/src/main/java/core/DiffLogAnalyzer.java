@@ -22,8 +22,8 @@ public class DiffLogAnalyzer {
         String rootPath = args[0];
         File listFile = new File(rootPath);
 
-        new File(listFile.getAbsolutePath()+"\\checksum.txt").delete();
-        new File(listFile.getAbsolutePath()+"\\uniqueCrash.txt").delete();
+        new File(listFile.getAbsolutePath()+DTPlatform.FILE_SEPARATOR+"checksum.txt").delete();
+        new File(listFile.getAbsolutePath()+DTPlatform.FILE_SEPARATOR+"uniqueCrash.txt").delete();
 
         File diffLog;
 
@@ -54,7 +54,7 @@ public class DiffLogAnalyzer {
                 crashCount++;
                 if(!uniqueCrash.contains(crashMess)){
                     uniqueCrash.add(crashMess);
-                    File uniqueCrashFile = new File(listFile.getAbsolutePath()+"\\uniqueCrash.txt");
+                    File uniqueCrashFile = new File(listFile.getAbsolutePath()+DTPlatform.FILE_SEPARATOR+"uniqueCrash.txt");
                     FileWriter fileWriter = new FileWriter(uniqueCrashFile,true);
                     fileWriter.write(diffDetail.get(0).toString()+"\n");
                     fileWriter.write(crashMess+"\n");
@@ -65,7 +65,7 @@ public class DiffLogAnalyzer {
                 checkSumCount++;
                 if(!uniqueCheck.contains(crashMess)){
                     uniqueCheck.add(crashMess);
-                    File uniqueChecksumName = new File(listFile.getAbsolutePath()+"\\checksum.txt");
+                    File uniqueChecksumName = new File(listFile.getAbsolutePath()+DTPlatform.FILE_SEPARATOR+"checksum.txt");
                     FileWriter fileWriter = new FileWriter(uniqueChecksumName,true);
                     fileWriter.write(diffDetail.get(0).toString()+"\n");
                     fileWriter.write(crashMess+"\n");
