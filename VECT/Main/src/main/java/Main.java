@@ -58,6 +58,9 @@ public class Main {
     public static String packagePath = "out"+DTPlatform.FILE_SEPARATOR+"production"+DTPlatform.FILE_SEPARATOR+"HotspotIssue";  // packagePath + packageName 指向项目的可用类
     public static String packageName = "Bug_triggering_input";
 
+    static {
+        Options.v().set_weak_map_structures(true);
+    }
     /**
      * Here we go！
      * @param args

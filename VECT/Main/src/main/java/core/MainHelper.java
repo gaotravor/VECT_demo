@@ -148,13 +148,14 @@ public class MainHelper {
      * @return
      */
     public static List<ClassInfo> initialSeeds(List<String> classes, String srcClassPath) {
-
         List<ClassInfo> classInfos = new ArrayList<>();
         classes.forEach(clazz -> {
 
-            String cpath = srcClassPath + DTPlatform.FILE_SEPARATOR +
+            String opath = srcClassPath + DTPlatform.FILE_SEPARATOR +
                     clazz.replace(".", DTPlatform.FILE_SEPARATOR) + ".class";
-            classInfos.add(new ClassInfo(clazz, cpath, clazz, cpath, 0, 0,false));
+            String tpath = opath.replace("sootOutput", "02Benchmarks");
+            classInfos.add(new ClassInfo(clazz, opath, clazz, tpath, 0, 0,false));
+
         });
         return classInfos;
     }

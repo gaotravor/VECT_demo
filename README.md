@@ -225,3 +225,32 @@ python assignmentComplete.py PlBart
 ```
 
 请将 `csvFile` 下生成的 `model Name+Assignment.csv` 文件复制到 `VECT ` 文件夹下，后续正常进行测试即可
+
+
+
+### issue记录
+
+1. OOM : GC overhead limit exceeded
+
+   待测试
+
+2. 项目存在无法执行的问题
+
+   `sootOutput` 中文件在每次执行中会被修改，再次执行 VECT 工具可能会导致无法正常执行。
+
+   建议在每次执行前删除根目录下的`sootOutput`文件夹，并且创建一个新的
+
+   ```
+   rm -r sootOutput
+   cp -r 02Benchmarks sootOutput
+   ```
+
+3. 删除根目录下产生的中间文件
+
+   ```
+   cd path/VECT
+   shopt -s extglob
+   rm -fr path/VECT!(.|..|01JVMS|02Benchmarks|03results|04SynthesisHistory|DTJVM|JavaTailor|lib|Main|out|sootOutput|VECT.jar|jad|jad.exe|pom.xml|*Assignment.csv)
+   ```
+
+   
