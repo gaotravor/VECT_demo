@@ -27,7 +27,6 @@ public class CodeClusterHelper {
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
-
         String mutationProviderProject = args[0];  // 提供合成块文件的项目
         String rootDirectory = args[1];
         String jadPath = args[2];
