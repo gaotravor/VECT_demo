@@ -347,6 +347,10 @@ public class MainHelper {
             if (JMUtils.saveSootClassToLocal(sclass, soot.options.Options.output_format_class)) {
                 seeds.add(aClass);
             }
+            for (SootMethod method : sclass.getMethods()) {
+                method.releaseActiveBody();
+            }
+            Scene.v().removeClass(sclass);
         }
         return seeds;
     }

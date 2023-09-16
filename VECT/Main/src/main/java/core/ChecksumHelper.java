@@ -114,6 +114,9 @@ public class ChecksumHelper {
                 tempSeeds.add(seed);
             }
 
+            for (SootMethod method : seedClass.getMethods()) {
+                method.releaseActiveBody();
+            }
             Scene.v().removeClass(seedClass);
 
         }
@@ -379,6 +382,9 @@ public class ChecksumHelper {
         args.add(var2);
         SootClass check_sum_class = JMUtils.loadTargetClass("checksum.check_sum");
         right = new JStaticInvokeExpr(check_sum_class.getMethod("int run(int,int)").makeRef(),args);
+        for (SootMethod method : check_sum_class.getMethods()) {
+            method.releaseActiveBody();
+        }
         Scene.v().removeClass(check_sum_class);
         JAssignStmt assignStmt4 = new JAssignStmt(left,right);
         stmtList.add(assignStmt4);
@@ -444,6 +450,12 @@ public class ChecksumHelper {
         body.getLocals().add((Local) var3);
 
 
+        for (SootMethod method : streamClass.getMethods()) {
+            method.releaseActiveBody();
+        }
+        for (SootMethod method : systemClass.getMethods()) {
+            method.releaseActiveBody();
+        }
         Scene.v().removeClass(systemClass);
         Scene.v().removeClass(streamClass);
         return stmtList;
@@ -495,6 +507,9 @@ public class ChecksumHelper {
         stmtList.add(assignStmt3);
         body.getLocals().add((Local) var1);
         body.getLocals().add((Local) var2);
+        for (SootMethod method : check_sum_class.getMethods()) {
+            method.releaseActiveBody();
+        }
         Scene.v().removeClass(check_sum_class);
         return stmtList;
     }

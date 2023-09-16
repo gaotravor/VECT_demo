@@ -136,8 +136,7 @@ public class Main {
             System.out.println(targetProject);
 
             // Initialize the soot environment
-            Configuration.initSootEnvWithClassPath(targetProject.getpClassPath());
-            Configuration.set_output_path(targetProject.getSrcClassPath());
+            sceneReset(targetProject.getpClassPath(), targetProject.getSrcClassPath());
             // Overwrite the files in SootOutput with files in 02Benchmark
             List<String> seedClasses = originProject.getApplicationClasses();
             MainHelper.restoreBadClasses(seedClasses, originProject, targetProject);
@@ -155,9 +154,7 @@ public class Main {
             List<String> mutationClasses = MainHelper.duplicateSeedsAndChangeModifiers(seedClasses);
 
             // reinitialize the SOOT environment
-            G.reset();
-            Configuration.initSootEnvWithClassPath(targetProject.getpClassPath());
-            Configuration.set_output_path(targetProject.getSrcClassPath());
+            sceneReset(targetProject.getpClassPath(), targetProject.getSrcClassPath());
 
             // Extract ingredients
             BlocksContainer.initMutantsFromClasses(mutationClasses);
@@ -178,8 +175,7 @@ public class Main {
             System.out.println(mutationProject);
 
             // Initialize the soot environment
-            Configuration.initSootEnvWithClassPath(mutationProject.getpClassPath());
-            Configuration.set_output_path(mutationProject.getSrcClassPath());
+            sceneReset(mutationProject.getpClassPath(), mutationProject.getSrcClassPath());
             // Overwrite the files in SootOutput with files in 02Benchmark
             List<String> originMutateClasses = originMutationProject.getApplicationClasses();
             MainHelper.restoreBadClasses(originMutateClasses, originMutationProject, mutationProject);
@@ -187,14 +183,7 @@ public class Main {
             List<String> mutationClasses = MainHelper.duplicateSeedsAndChangeModifiers(originMutateClasses);
 
             // reinitialize the SOOT environment
-            G.reset();
-            Scene.v().addBasicClass("java.lang.StringBuilder");
-            Scene.v().addBasicClass("java.io.PrintStream");
-            Scene.v().addBasicClass("java.lang.System");
-            Scene.v().addBasicClass("java.lang.String");
-            Scene.v().addBasicClass("com.sun.crypto.provider.Cipher.AEAD.ReadWriteSkip$SkipTest");
-            Configuration.initSootEnvWithClassPath(targetProject.getpClassPath() + System.getProperty("path.separator") + mutationProject.getpClassPath());
-            Configuration.set_output_path(targetProject.getSrcClassPath());
+            sceneReset(targetProject.getpClassPath() + System.getProperty("path.separator") + mutationProject.getpClassPath(), targetProject.getSrcClassPath());
             // Overwrite the files in SootOutput with files in 02Benchmark
             List<String> seedClasses = originProject.getApplicationClasses();
             MainHelper.restoreBadClasses(seedClasses, originProject, targetProject);
@@ -427,6 +416,9 @@ public class Main {
                     }
                 }
             }
+            for (SootMethod seedMethod : seedMethods) {
+                seedMethod.releaseActiveBody();
+            }
             Scene.v().removeClass(seedClass);
 
         }
@@ -557,5 +549,16 @@ public class Main {
                 }
             }
         }
+    }
+    private static void sceneReset(String pClassPath, String srcClassPath){
+        G.reset();
+        Configuration.initSootEnvWithClassPath(pClassPath);
+        Configuration.set_output_path(srcClassPath);
+        Scene.v().addBasicClass("compiler.types.TestPhiElimination$A",SootClass.HIERARCHY);
+        Scene.v().addBasicClass("java.lang.StringBuilder",SootClass.HIERARCHY);
+        Scene.v().addBasicClass("java.io.PrintStream",SootClass.HIERARCHY);
+        Scene.v().addBasicClass("java.lang.System",SootClass.HIERARCHY);
+        Scene.v().addBasicClass("java.lang.String",SootClass.HIERARCHY);
+        Scene.v().addBasicClass("com.sun.crypto.provider.Cipher.AEAD.ReadWriteSkip$SkipTest",SootClass.HIERARCHY);
     }
 }

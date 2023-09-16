@@ -9,18 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b7e052b-d4ec-4dfc-b99f-ed6aee3313c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+    <list default="true" id="fd3763dd-bfde-4ef5-a03b-7702284fa470" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/VECT_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/VECT_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTJVM/src/main/java/dtjvms/executor/ExecutorHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTJVM/src/main/java/dtjvms/executor/ExecutorHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaTailor/src/main/java/JimpleMixer/blocks/BlocksContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaTailor/src/main/java/JimpleMixer/blocks/BlocksContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/java/core/ChecksumHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/core/ChecksumHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/src/main/java/core/MainHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/core/MainHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-=======
->>>>>>> c217c4e90af381fdd0914c199fd81eac1d80cd62
->>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,71 +26,36 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="2PRa24ylAG1YQdHgxTSHDiJc0Kf" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2VToVgiDkEcildtrTB28uGeJHDz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
-  </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="DiffLogAnalyzer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="core.DiffLogAnalyzer" />
-      <module name="Main" />
-      <option name="PROGRAM_PARAMETERS" value="D:\project\HuaWeiAnalysis\03results\1681640306952\HotspotTests-Java1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="core.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.DiffLogAnalyzer" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.DiffLogAnalyzer" />
-      </list>
-    </recent_temporary>
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0b7e052b-d4ec-4dfc-b99f-ed6aee3313c2" name="Changes" comment="" />
-      <created>1683422139023</created>
+      <changelist id="fd3763dd-bfde-4ef5-a03b-7702284fa470" name="Changes" comment="" />
+      <created>1694869458400</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683422139023</updated>
+      <updated>1694869458400</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
