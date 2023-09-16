@@ -122,7 +122,7 @@ java -cp VECT.jar:lib/rt.jar Main -help
 下面是一个进行测试的例子：
 
 ```
-java -cp VECT.jar:lib/rt.jar Main -s HotspotTests-Java -p HotspotTests-Java -sl rws -cl plbart -ch true -et 86000
+java -XX:+UseStringDeduplication -Xms1024m -Xmx10240m -cp VECT.jar:lib/rt.jar Main -s HotspotTests-Java -p HotspotTests-Java -sl rws -cl plbart -ch true -et 86000
 ```
 
 
